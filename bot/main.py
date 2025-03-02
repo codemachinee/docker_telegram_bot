@@ -13,7 +13,7 @@ from loguru import logger
 logger.remove()
 # Настраиваем логирование в файл с ограничением количества файлов
 logger.add(
-    "loggs.log",
+    "bot/loggs.log",
     format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {message}",
     level="INFO",
     rotation="5 MB",  # Ротация файла каждые 10 MB
