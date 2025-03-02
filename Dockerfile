@@ -1,5 +1,5 @@
 # Используем Python-образ
-FROM python:3.11
+FROM python:3.11-slim
 
 # Устанавливаем рабочую директорию
 WORKDIR /app

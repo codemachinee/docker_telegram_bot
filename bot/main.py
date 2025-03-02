@@ -1,13 +1,14 @@
 import asyncio
-import logging
 import os
-
+import time
 from aiogram.filters import Command
 from dotenv import load_dotenv
 load_dotenv()
-
 from aiogram import Bot, Dispatcher, types
 from loguru import logger
+
+os.environ['TZ'] = 'Europe/Moscow'
+time.tzset()
 
 # Удаляем стандартный обработчик
 logger.remove()
