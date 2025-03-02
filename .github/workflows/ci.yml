@@ -20,8 +20,12 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
           script: |
+            # Переходим в директорию с проектом
             cd /root/docker_telegram_bot
+            # Обновляем репозиторий
             git pull origin main
-            docker compose down
+            # Останавливаем и удаляем контейнер с именем telegram_bot, если он существует
+            docker rm -f telegram_bot || true
+            # Собираем новый образ
             docker build -t telegram_bot .
             docker run -d --name telegram_bot --env-file .env -v /root/docker_telegram_bot/bot:/app/bot telegram_bot
