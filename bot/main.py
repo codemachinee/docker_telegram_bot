@@ -34,6 +34,11 @@ async def start_handler(message: types.Message):
     await message.answer("Привет! Я работаю в Docker 🐳")
 
 
+@dp.message(Command(commands="help"))
+async def start_handler(message: types.Message):
+    await message.answer("Привет!")
+
+
 async def main():
     await dp.start_polling(bot)
 
