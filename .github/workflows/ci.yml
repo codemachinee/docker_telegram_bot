@@ -24,4 +24,4 @@ jobs:
             git pull origin main
             docker compose down
             docker build -t telegram_bot .
-            docker compose up -d --force-recreate
+            docker run -d --name telegram_bot --env-file .env -v /root/docker_telegram_bot/bot:/app/bot telegram_bot
