@@ -20,8 +20,8 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
           script: |
-            cd /root/telegram-bot
+            cd /root/docker_telegram_bot
             git pull origin main
             docker compose down
-            docker build -t telegram-bot .
+            docker build -t telegram_bot .
             docker compose up -d --force-recreate
